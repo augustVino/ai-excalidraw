@@ -228,14 +228,19 @@ async function processChat(
       requestBody.tool_choice = 'auto';
     }
 
-    const response = await fetch(`/api/nvidia/v1/chat/completions`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${config.apiKey}`
-      },
-      body: JSON.stringify(requestBody)
-    });
+    const response = await fetch(
+      `/api/proxy?apiUrl=${encodeURIComponent(config.baseURL)}&path=${encodeURIComponent(
+        '/chat/completions'
+      )}`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${config.apiKey}`
+        },
+        body: JSON.stringify(requestBody)
+      }
+    );
 
     if (!response.ok) {
       const errorText = await response.text();

@@ -10,14 +10,5 @@ export default defineConfig({
     alias: {
       '@': path.resolve(__dirname, './src')
     }
-  },
-  server: {
-    proxy: {
-      '/api': {
-        target: 'https://integrate.api.nvidia.com/v1',
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, '')
-      }
-    }
   }
 });

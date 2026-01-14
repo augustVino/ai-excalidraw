@@ -233,7 +233,7 @@ async function processChat(
         '/chat/completions'
       )}`,
       {
-        method: 'POST',
+        method: 'GET',
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${config.apiKey}`

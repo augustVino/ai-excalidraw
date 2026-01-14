@@ -228,7 +228,7 @@ async function processChat(
       requestBody.tool_choice = 'auto';
     }
 
-    const response = await fetch(`/api/chat/completions`, {
+    const response = await fetch(`${config.baseURL}/chat/completions`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

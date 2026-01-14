@@ -15,7 +15,7 @@ module.exports = (req, res) => {
     changeOrigin: true,
     pathRewrite: {
       // 通过路径重写，去除请求路径中的 `/api`
-      '^/api/': '/'
+      '^https://integrate.api.nvidia.com/v1/': '/'
     }
   })(req, res);
 };
